@@ -1,0 +1,4 @@
+{{ define "Menu" }}
+<a href="/">HOME</a> | 
+<a href="/new">NEW</a>
+{{ end }}

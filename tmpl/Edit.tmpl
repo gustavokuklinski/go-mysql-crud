@@ -1,0 +1,14 @@
+{{ define "Edit" }}
+  {{ template "Header" }}
+    {{ template "Menu" }} 
+   <h2>Edit name and e-mail</h2>
+  
+    <form method="POST" action="update">
+      <input type="hidden" name="uid" value="{{ .Id }}" />
+      <label> Name </label><input type="text" name="name" value="{{ .Name }}"  /><br />
+      <label> E-Mail </label><input type="text" name="email" value="{{ .Email }}"  /><br />
+      <input type="submit" value="Save user" />
+    </form><br />
+    <a href="/delete?id={{ .Id }}">Delete</a>
+  {{ template "Footer" }}
+{{ end }}
