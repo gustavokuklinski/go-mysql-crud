@@ -95,7 +95,7 @@ func Show(w http.ResponseWriter, r *http.Request) {
 	nId := r.URL.Query().Get("id")
 
 	// Usa o ID para fazer a consulta e trata erros
-	selDB, err := db.Query("SELECT * FROM names WHERE id=" + nId)
+	selDB, err := db.Query("SELECT * FROM names WHERE id=?", nId)
 	if err != nil {
 		panic(err.Error())
 	}
@@ -144,7 +144,7 @@ func Edit(w http.ResponseWriter, r *http.Request) {
 	nId := r.URL.Query().Get("id")
 
 	// Realiza consulta usando o ID e trata erros
-	selDB, err := db.Query("SELECT * FROM names WHERE id=" + nId)
+	selDB, err := db.Query("SELECT * FROM names WHERE id=?", nId)
 	if err != nil {
 		panic(err.Error())
 	}
