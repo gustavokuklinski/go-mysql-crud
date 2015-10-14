@@ -56,7 +56,7 @@ func Index(w http.ResponseWriter, r *http.Request) {
 func Show(w http.ResponseWriter, r *http.Request) {
 	db := dbConn()
 	nId := r.URL.Query().Get("id")
-	selDB, err := db.Query("SELECT * FROM names WHERE id=" + nId)
+	selDB, err := db.Query("SELECT * FROM names WHERE id=?", nId)
 	if err != nil {
 		panic(err.Error())
 	}
@@ -83,7 +83,7 @@ func New(w http.ResponseWriter, r *http.Request) {
 func Edit(w http.ResponseWriter, r *http.Request) {
 	db := dbConn()
 	nId := r.URL.Query().Get("id")
-	selDB, err := db.Query("SELECT * FROM names WHERE id=" + nId)
+	selDB, err := db.Query("SELECT * FROM names WHERE id=?", nId)
 	if err != nil {
 		panic(err.Error())
 	}

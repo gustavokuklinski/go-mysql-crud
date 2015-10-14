@@ -97,7 +97,7 @@ func Show(w http.ResponseWriter, r *http.Request) {
 	nId := r.URL.Query().Get("id")
 
 	// Perform a SELECT query getting the register Id(See above) and check for errors
-	selDB, err := db.Query("SELECT * FROM names WHERE id=" + nId)
+	selDB, err := db.Query("SELECT * FROM names WHERE id=?", nId)
 	if err != nil {
 		panic(err.Error())
 	}
@@ -149,7 +149,7 @@ func Edit(w http.ResponseWriter, r *http.Request) {
 	// Get the URL `?id=X` parameter
 	nId := r.URL.Query().Get("id")
 
-	selDB, err := db.Query("SELECT * FROM names WHERE id=" + nId)
+	selDB, err := db.Query("SELECT * FROM names WHERE id=?", nId)
 	if err != nil {
 		panic(err.Error())
 	}
