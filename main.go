@@ -34,7 +34,7 @@ func dbConn() (db *sql.DB) {
 		panic(err.Error())
 	}
 
-	// Return db object to be used by another functions
+	// Return db object to be used by other functions
 	return db
 }
 
